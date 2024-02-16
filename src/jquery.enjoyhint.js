@@ -203,7 +203,7 @@ CanvasRenderingContext2D.prototype.roundRect = function (x, y, w, h, r) {
             class: that.cl.skip_btn
           })
           .appendTo(that.enjoyhint)
-          .html("Skip")
+          .html(that.options.skipText)
           .click(function (e) {
             that.hide();
             that.options.onSkipClick();
@@ -213,7 +213,7 @@ CanvasRenderingContext2D.prototype.roundRect = function (x, y, w, h, r) {
             class: that.cl.next_btn
           })
           .appendTo(that.enjoyhint)
-          .html("Next")
+          .html(that.options.nextText)
           .click(function (e) {
             that.options.onNextClick();
           });
@@ -232,7 +232,7 @@ CanvasRenderingContext2D.prototype.roundRect = function (x, y, w, h, r) {
             class: that.cl.previous_btn
           })
           .appendTo(that.enjoyhint)
-          .html("Previous")
+          .html(that.options.prevText)
           .click(function (e) {
             that.options.onPrevClick();
           });
@@ -1055,11 +1055,11 @@ CanvasRenderingContext2D.prototype.roundRect = function (x, y, w, h, r) {
               distance = initial_distance;
               ver_button_position = initial_ver_position;
               that.$next_btn.html(customBtnProps.nextButton && customBtnProps.nextButton.text ?
-                customBtnProps.nextButton.text : 'Next');
+                  customBtnProps.nextButton.text : that.options.nextText);
               that.$prev_btn.html(customBtnProps.prevButton && customBtnProps.prevButton.text ?
-                customBtnProps.prevButton.text : 'Previous');
+                  customBtnProps.prevButton.text : that.options.prevText);
               that.$skip_btn.html(customBtnProps.skipButton && customBtnProps.skipButton.text ?
-                customBtnProps.skipButton.text : 'Skip');
+                  customBtnProps.skipButton.text : that.options.skipText);
             }
 
             that.$prev_btn.css({
