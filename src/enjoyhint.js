@@ -38,8 +38,8 @@
     var options = $.extend(defaults, _options);
     var data = [];
     var current_step = 0;
-  
     var $body = $(body);
+    var bodyOverflow;
   
     /********************* PRIVATE METHODS ***************************************/
   
@@ -47,7 +47,8 @@
       if ($(".enjoyhint")) {
         $(".enjoyhint").remove();
       }
-  
+
+      bodyOverflow = $body.css( "overflow" );
       $body.css({ overflow: "hidden" });
   
       $(document).on("touchmove", lockTouch);
@@ -75,7 +76,7 @@
     };
   
     var hideEnjoy = function () {
-      $body.css({overflow: "auto"});
+      $body.css({overflow: bodyOverflow });
       $(document).off("touchmove", lockTouch);
     }
 
@@ -162,11 +163,12 @@
         }, 250);
 
         var stepSelector = $(step_data.selector).get(0);
-        if (stepSelector && stepSelector.clientHeight && stepSelector.clientWidth) {
-          var isHintInViewport = stepSelector.getBoundingClientRect();
-        } else {
-          return console.log("Error: Element position couldn't be reached");
-        }
+        var isHintInViewport = stepSelector.getBoundingClientRect();
+        // if (stepSelector && stepSelector.clientHeight && stepSelector.clientWidth) {
+        //   var isHintInViewport = stepSelector.getBoundingClientRect();
+        // } else {
+        //   return console.log("Error: Element position couldn't be reached");
+        // }
         if(isHintInViewport.top < 0 || isHintInViewport.bottom > (window.innerHeight || document.documentElement.clientHeight)){
             hideCurrentHint();
             $(document.body).scrollTo(step_data.selector, step_data.scrollAnimationSpeed || 250, {offset: -200});
