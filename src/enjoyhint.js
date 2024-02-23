@@ -20,7 +20,7 @@
     var BTN_NEXT_TEXT = _options.btnNextText || 'Next';
     var BTN_SKIP_TEXT = _options.btnSkipText || 'Skip';
     var BTN_PREV_TEXT = _options.btnPrevText || 'Previous';
-  
+    var ARROW_COLOR   = _options.arrowColor  || 'white';
     var SHAPE_BACKGROUND_COLOR = _options.backgroundColor || "rgba(0,0,0,0.6)";
   
     var body = "body"; // TODO: Is it possible case when we need to define enjoyhint somewhere else?
@@ -67,7 +67,8 @@
         fill: SHAPE_BACKGROUND_COLOR,
         nextText: BTN_NEXT_TEXT,
         skipText: BTN_SKIP_TEXT,
-        prevText: BTN_PREV_TEXT
+        prevText: BTN_PREV_TEXT,
+        arrowColor: ARROW_COLOR
       });
     };
   

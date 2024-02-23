@@ -648,8 +648,10 @@ CanvasRenderingContext2D.prototype.roundRect = function (x, y, w, h, r) {
               })
             );
 
-            if (that.stepData.arrowColor) {
-              that.setMarkerColor(that.stepData.arrowColor)
+            var ac = that.stepData.arrowColor? that.stepData.arrowColor : that.options.arrowColor;
+
+            if (ac) {
+              that.setMarkerColor(ac)
             } else {
               $("#poliline").css("stroke", "rgb(255, 255, 255)");
             }
